@@ -5,7 +5,8 @@ using UnityEngine;
 
 public enum ItemType {
     BrainCell = 0,
-    Hammer = 1
+    Drill = 1,
+    Wand = 2
 }
 
 public class Item : MonoBehaviour {
@@ -86,7 +87,7 @@ public class Item : MonoBehaviour {
         if (fixFactor == 0) {
             return;
         }
-        if (!player.HasItem(ItemType.Hammer)) {
+        if (!player.HasItem(ItemType.Drill)) {
             return;
         }
 
