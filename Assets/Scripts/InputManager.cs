@@ -41,7 +41,7 @@ public class InputManager : MonoBehaviour {
         // smoothY = Mathf.SmoothDamp(smoothY, mouseY, ref smoothYvelocity, turnSmoothing);
 
         bool interaction = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1");
-        Vector2 moveDirection = v * Vector2.up + h * Vector2.left;
+        Vector2 moveDirection = v * Vector2.up + h * Vector2.right;
 
         player.Move(moveDirection, interactionPressed);
         interactionPressed = false;

@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour {
         //healthIndicatorCache[item.name].gameObject.SetActive(false);
         //}
 
-        Pause();
+        //Pause();
     }
 
     public void UpdateProgessIndicator(string name, float amount) {

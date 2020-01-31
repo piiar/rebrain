@@ -9,8 +9,6 @@ public class Player : MonoBehaviour {
     private readonly int speedHash = Animator.StringToHash("Speed");
     private readonly int pickupHash = Animator.StringToHash("PickUp");
 
-    Vector3 movement;
-
     float rotationSpeed = 12f;
     float moveSpeed = 6f;
 
@@ -60,12 +58,12 @@ public class Player : MonoBehaviour {
     }
 
     private void ApplyRotationTo(Vector3 targetPosition) {
-        Vector3 repositioning = targetPosition;
-        if (repositioning != Vector3.zero) {
-            repositioning.y = 0;
-            Quaternion targetRotation = Quaternion.LookRotation(repositioning, Vector3.up);
-            rigidbody.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime));
-        }
+        //Vector3 repositioning = targetPosition;
+        //if (repositioning != Vector3.zero) {
+        //    repositioning.y = 0;
+        //    Quaternion targetRotation = Quaternion.LookRotation(repositioning, Vector3.up);
+        //    rigidbody.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime));
+        //}
     }
 
     private void HandleInteraction() {
