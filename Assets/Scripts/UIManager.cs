@@ -112,7 +112,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public void UpdateClock(float fill) {
-        clockImage.fillAmount = fill;
+        //clockImage.fillAmount = fill;
     }
 
     public void StartGame() {
@@ -135,8 +135,8 @@ public class UIManager : MonoBehaviour {
 
     public void Pause() {
 
-        menupanel.gameObject.SetActive(true);
-        hudpanel.gameObject.SetActive(false);
+        //menupanel.gameObject.SetActive(true);
+        //hudpanel.gameObject.SetActive(false);
 
         //Set isPaused to true
         isPaused = true;
@@ -148,8 +148,8 @@ public class UIManager : MonoBehaviour {
 
     public void Unpause() {
 
-        menupanel.gameObject.SetActive(false);
-        hudpanel.gameObject.SetActive(true);
+        //menupanel.gameObject.SetActive(false);
+        //hudpanel.gameObject.SetActive(true);
 
         //Set isPaused to false
         isPaused = false;

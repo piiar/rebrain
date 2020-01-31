@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
     GameObject carriedObject = null;
 
     private ItemTrigger itemFinder;
-    private new Rigidbody rigidbody;
+    private new Rigidbody2D rigidbody;
     private Animator animator;
 
     private bool animationFreezeActive;
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour {
 
     // Start is called before the first frame update
     void Awake() {
-        rigidbody = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         itemFinder = GetComponentInChildren<ItemTrigger>();
 
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour {
     }
 
     // Update is called once per frame
-    public void Move(Vector3 moveDirection, bool interaction) {
+    public void Move(Vector2 moveDirection, bool interaction) {
         if (UIManager.instance.isPaused || animationFreezeActive) {
             return;
         }
@@ -46,17 +46,17 @@ public class Player : MonoBehaviour {
         // Move the controller
         var movement = moveDirection * moveSpeed * Time.deltaTime;
 
-        rigidbody.MovePosition(transform.position + movement);
+        rigidbody.MovePosition(new Vector2(transform.position.x + movement.x, transform.position.y + movement.y));
 
         if (interaction) {
             HandleInteraction();
         }
 
         // Prevent the player for spinning due to physics issues when moving stuff and colliding
-        rigidbody.velocity = Vector3.zero;
-        rigidbody.angularVelocity = Vector3.zero;
+        //rigidbody.velocity = Vector3.zero;
+        //rigidbody.angularVelocity = 0f;
 
-        animator.SetFloat(speedHash, Mathf.Min(moveDirection.magnitude, 1f));
+        //animator.SetFloat(speedHash, Mathf.Min(moveDirection.magnitude, 1f));
     }
 
     private void ApplyRotationTo(Vector3 targetPosition) {
