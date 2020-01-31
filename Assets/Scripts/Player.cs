@@ -69,60 +69,60 @@ public class Player : MonoBehaviour {
     }
 
     private void HandleInteraction() {
-        Item item = itemFinder.LastItem;
-        if (item) {
-            PlayerAction action = null;
-            switch (item.itemType) {
-                case ItemType.Foodbowl:
-                    // This if check shouldn't be necessary as bowls
-                    // don't have any normal use action.
-                    if (HasItem(ItemType.Water) || HasItem(ItemType.Food)) {
-                        var bowl = item.GetComponent<BowlScript>();
-                        action = bowl.PlayerAction;
-                    }
-                    break;
-                case ItemType.Dishtable:
-                    var dishtable = item.GetComponent<DishtableScript>();
-                    action = dishtable.PlayerAction;
-                    break;
-                case ItemType.Fridge:
-                    var fridge = item.GetComponent<FridgeScript>();
-                    action = fridge.PlayerAction;
-                    break;
-                case ItemType.Drawer:
-                    var drawer = item.GetComponent<DrawerScript>();
-                    action = drawer.PlayerAction;
-                    break;
-                case ItemType.Furniture:
-                    // Without this check action is always defined
-                    // and furniture can't be picked up.
-                    if (HasItem(ItemType.Repair)) {
-                        action = item.PlayerRepairAction;
-                    }
-                    break;
-            }
+        //Item item = itemFinder.LastItem;
+        //if (item) {
+        //    PlayerAction action = null;
+        //    switch (item.itemType) {
+        //        case ItemType.Foodbowl:
+        //            // This if check shouldn't be necessary as bowls
+        //            // don't have any normal use action.
+        //            if (HasItem(ItemType.Water) || HasItem(ItemType.Food)) {
+        //                var bowl = item.GetComponent<BowlScript>();
+        //                action = bowl.PlayerAction;
+        //            }
+        //            break;
+        //        case ItemType.Dishtable:
+        //            var dishtable = item.GetComponent<DishtableScript>();
+        //            action = dishtable.PlayerAction;
+        //            break;
+        //        case ItemType.Fridge:
+        //            var fridge = item.GetComponent<FridgeScript>();
+        //            action = fridge.PlayerAction;
+        //            break;
+        //        case ItemType.Drawer:
+        //            var drawer = item.GetComponent<DrawerScript>();
+        //            action = drawer.PlayerAction;
+        //            break;
+        //        case ItemType.Furniture:
+        //            // Without this check action is always defined
+        //            // and furniture can't be picked up.
+        //            if (HasItem(ItemType.Repair)) {
+        //                action = item.PlayerRepairAction;
+        //            }
+        //            break;
+        //    }
 
-            if (action != null) {
-                action(this, item);
-            }
-            else if (!carriedObject && item.isCarryable) {
-                // Pick up
-                PickupItem(item);
+        //    if (action != null) {
+        //        action(this, item);
+        //    }
+        //    else if (!carriedObject && item.isCarryable) {
+        //        // Pick up
+        //        PickupItem(item);
 
-            }
-        }
-        if (!item && carriedObject != null) {
-            // Drop
-            animationFreezeActive = true;
-            StartCoroutine(togglePickupAnimation(() => {
-                animator.SetLayerWeight(1, 0f);
-                carriedObject.transform.SetParent(null);
-                Item _item = carriedObject.GetComponent<Item>();
-                _item.DroppedDown();
-                carriedObject = null;
-                animationFreezeActive = false;
-            }));
-        }
+        //    }
+        //}
+        //if (!item && carriedObject != null) {
+        //    // Drop
+        //    animationFreezeActive = true;
+        //    StartCoroutine(togglePickupAnimation(() => {
+        //        animator.SetLayerWeight(1, 0f);
+        //        carriedObject.transform.SetParent(null);
+        //        Item _item = carriedObject.GetComponent<Item>();
+        //        _item.DroppedDown();
+        //        carriedObject = null;
+        //        animationFreezeActive = false;
+        //    }));
+        //}
     }
 
     public bool HasItem(ItemType itemType) {
