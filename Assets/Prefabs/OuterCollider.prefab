@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7651786868848524731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7651786868848524729}
+  - component: {fileID: 7651786868848524728}
+  m_Layer: 0
+  m_Name: OuterCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7651786868848524729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7651786868848524731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9343916, y: 0.2845392, z: -0.6092802}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &7651786868848524728
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7651786868848524731}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -6.6980066, y: -3.3616307}
+  - {x: -7.416345, y: -2.1659288}
+  - {x: -7.17635, y: -0.15905073}
+  - {x: -6.314112, y: 1.5316757}
+  - {x: -5.015579, y: 3.0153704}
+  - {x: -3.979072, y: 4.022908}
+  - {x: -2.3723059, y: 4.9658}
+  - {x: 0.98747903, y: 5.5046706}
+  - {x: 4.626927, y: 4.8460827}
+  - {x: 5.371675, y: 4.464181}
+  - {x: 6.661851, y: 3.434983}
+  - {x: 7.501274, y: 2.4941862}
+  - {x: 8.104597, y: 1.6825619}
+  - {x: 9.156554, y: -0.15980053}
+  - {x: 9.752119, y: -2.0275104}
+  - {x: 8.883068, y: -3.3616307}

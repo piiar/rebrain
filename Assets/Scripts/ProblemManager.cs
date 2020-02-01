@@ -21,7 +21,7 @@ public class ProblemManager : MonoBehaviour {
         timeUntilNextProblem -= Time.deltaTime;
 
         if (timeUntilNextProblem <= 0f) {
-            timeUntilNextProblem = Random.Range(5f, 10f);
+            timeUntilNextProblem = Random.Range(2f, 5f);
             RandomizeSpot();
         }
     }
