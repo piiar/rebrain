@@ -83,13 +83,13 @@ public class Player : MonoBehaviour {
     private void HandleFixing() {
         Debug.Log("HandleFixing");
         if (HasItem(ItemType.Drill)) {
-            audioManager.PlaySound("drillUsed");
+            audioManager.PlaySound("drillSound");
         }
         else if (HasItem(ItemType.Wand)) {
-            audioManager.PlaySound("wandUsed");
+            audioManager.PlaySound("wandSound");
         }
         else {
-            audioManager.PlaySound("noTool");
+            audioManager.PlaySound("noToolSound");
         }
 
         Item problem = itemFinder.LastProblem;
