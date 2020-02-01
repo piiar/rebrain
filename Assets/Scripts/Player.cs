@@ -86,10 +86,10 @@ public class Player : MonoBehaviour {
                 PickupItem(item);
 
             }
-        }
-        if (!item && carriedObject != null) {
-            // Drop currently carried item
-            DropItem();
+            else if (carriedObject != null) {
+                // Drop currently carried item
+                DropItem();
+            }
         }
     }
 
