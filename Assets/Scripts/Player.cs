@@ -73,7 +73,6 @@ public class Player : MonoBehaviour {
                     break;
                 case ItemType.WandProblem:
                     if (HasItem(ItemType.Wand)) {
-                        // action = RepairWandAction
                         action = new WandRepairAction();
                     }
                     break;
