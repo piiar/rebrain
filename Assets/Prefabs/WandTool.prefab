@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cded0175e72d9433cb1e090c17d34a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 2
+  itemType: 3
   isScoreable: 0
   isPickedUp: 0
   isGoal: 0
