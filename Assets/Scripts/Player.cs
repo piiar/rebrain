@@ -5,7 +5,6 @@ using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-    public AudioManager audioManager;
     private readonly int speedHash = Animator.StringToHash("Speed");
     private readonly int pickupHash = Animator.StringToHash("PickUp");
 
@@ -83,13 +82,13 @@ public class Player : MonoBehaviour {
     private void HandleFixing() {
         Debug.Log("HandleFixing");
         if (HasItem(ItemType.Drill)) {
-            audioManager.PlaySound("drillSound");
+            AudioManager.instance.PlaySound("drillSound");
         }
         else if (HasItem(ItemType.Wand)) {
-            audioManager.PlaySound("wandSound");
+            AudioManager.instance.PlaySound("wandSound");
         }
         else {
-            audioManager.PlaySound("noToolSound");
+            AudioManager.instance.PlaySound("noToolSound");
         }
 
         Item problem = itemFinder.LastProblem;

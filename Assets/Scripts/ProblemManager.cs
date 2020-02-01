@@ -4,7 +4,6 @@ using System.Linq;
 using UnityEngine;
 
 public class ProblemManager : MonoBehaviour {
-    public AudioManager audioManager;
     public GameObject DrillProblemObject;
     public GameObject WandProblemObject;
 
@@ -49,20 +48,20 @@ public class ProblemManager : MonoBehaviour {
             //Debug.Log("Next spot: " + spot.gameObject.name);
             int selectedType = Random.Range(0, 2);
             if (selectedType == 1) {
-                audioManager.PlaySound("woundAppearSound");
+                AudioManager.instance.PlaySound("woundAppearSound");
                 var problemObject = GameObject.Instantiate(WandProblemObject);
                 problemObject.transform.position = spotTransform.position;
                 Problem problem = problemObject.GetComponent<Problem>();
                 problem.relatedSpot = spot;
             }
             else {
-                audioManager.PlaySound("rockAppearSound");
+                AudioManager.instance.PlaySound("rockAppearSound");
                 var problemObject = GameObject.Instantiate(DrillProblemObject);
                 problemObject.transform.position = spotTransform.position;
                 Problem problem = problemObject.GetComponent<Problem>();
                 problem.relatedSpot = spot;
-            } 
-            
+            }
+
         }
     }
 
