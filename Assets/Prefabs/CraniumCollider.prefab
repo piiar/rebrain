@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3869319894707440936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6343429741283856552}
+  - component: {fileID: 280142501919298438}
+  m_Layer: 0
+  m_Name: CraniumCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6343429741283856552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869319894707440936}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &280142501919298438
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869319894707440936}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -7.969528, y: -3.1121745}
+  - {x: -7.802806, y: -1.3661659}
+  - {x: -7.323126, y: 0.29488897}
+  - {x: -6.169133, y: 2.143195}
+  - {x: -4.578561, y: 3.6597404}
+  - {x: -2.2575188, y: 4.8540363}
+  - {x: -0.01892861, y: 5.0097356}
+  - {x: 2.5929725, y: 4.737453}
+  - {x: 4.57328, y: 3.5582187}
+  - {x: 5.8790236, y: 2.3110273}
+  - {x: 7.4855146, y: 0.17805552}
+  - {x: 8.095195, y: -1.3996794}
+  - {x: 8.306425, y: -3.1262264}
