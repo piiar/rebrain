@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Problem
   - ProblemSpot
+  - Item
   layers:
   - Default
   - TransparentFX
