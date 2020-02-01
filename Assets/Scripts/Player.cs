@@ -39,13 +39,12 @@ public class Player : MonoBehaviour {
             return;
         }
 
-        ApplyRotationTo(moveDirection);
-
         // Move the controller
-        var movement = moveDirection * moveSpeed * Time.deltaTime;
-
-        rigidbody.MovePosition(new Vector2(transform.position.x + movement.x, transform.position.y + movement.y));
-
+        if (moveDirection.x != 0 || moveDirection.y != 0) {
+            ApplyRotationTo(moveDirection);
+            var movement = moveDirection * moveSpeed * Time.deltaTime;
+            rigidbody.MovePosition(new Vector2(transform.position.x + movement.x, transform.position.y + movement.y));
+        }
         if (interaction) {
             HandleInteraction();
         }
