@@ -5,7 +5,6 @@ using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-
     private readonly int speedHash = Animator.StringToHash("Speed");
     private readonly int pickupHash = Animator.StringToHash("PickUp");
 
@@ -89,6 +88,7 @@ public class Player : MonoBehaviour {
                 case ItemType.DrillProblem:
                     Debug.Log("---player has " + GetCarriedItem().itemType);
                     if (HasItem(ItemType.Drill)) {
+
                         action = new DrillRepairAction();
                     }
                     break;
