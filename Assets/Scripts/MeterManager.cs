@@ -65,7 +65,7 @@ public class MeterManager : MonoBehaviour {
     public void DecreaseDrillMeter() {
         if (drillAmount > 0) {
             drillAmount--;
-            UIManager.instance.UpdateElectricMeter(drillAmount);
+            UIManager.instance.UpdateDrillMeter(drillAmount);
         }
     }
 }
