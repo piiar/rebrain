@@ -26,7 +26,7 @@ public class Item : MonoBehaviour {
     public double countdownToDamage = 3f;
 
     void LateUpdate() {
-        UIManager.instance.UpdateProgessIndicatorPos(transform.name, Camera.main.WorldToScreenPoint(transform.position));
+        //UIManager.instance.UpdateProgessIndicatorPos(transform.name, Camera.main.WorldToScreenPoint(transform.position));
     }
 
     public void UpdateCountdownToDamage() {
@@ -49,27 +49,27 @@ public class Item : MonoBehaviour {
     }
 
     public void HandleDamage() {
-        if (currentValue > 0) {
-            currentValue -= damageFactor;
-            Debug.Log("Item damaged, value left: " + currentValue + "/" + maxValue);
-            UIManager.instance.UpdateProgessIndicator(transform.name, currentValue / maxValue);
-            if (currentValue < 0) {
-                Debug.Log("Item destroyed");
-                currentValue = 0;
-            }
-        }
+        //if (currentValue > 0) {
+        //    currentValue -= damageFactor;
+        //    Debug.Log("Item damaged, value left: " + currentValue + "/" + maxValue);
+        //    UIManager.instance.UpdateProgessIndicator(transform.name, currentValue / maxValue);
+        //    if (currentValue < 0) {
+        //        Debug.Log("Item destroyed");
+        //        currentValue = 0;
+        //    }
+        //}
     }
 
     public void HandleFixing() {
-        if (currentValue < maxValue) {
-            currentValue += fixFactor;
-            Debug.Log("Item fixed, value left: " + currentValue + "/" + maxValue);
-            UIManager.instance.UpdateProgessIndicator(transform.name, currentValue / maxValue);
-            if (currentValue > maxValue) {
-                currentValue = maxValue;
-            }
-            UIManager.instance.UpdateProgessIndicator(transform.name, currentValue / maxValue);
-        }
+        //if (currentValue < maxValue) {
+        //    currentValue += fixFactor;
+        //    Debug.Log("Item fixed, value left: " + currentValue + "/" + maxValue);
+        //    UIManager.instance.UpdateProgessIndicator(transform.name, currentValue / maxValue);
+        //    if (currentValue > maxValue) {
+        //        currentValue = maxValue;
+        //    }
+        //    UIManager.instance.UpdateProgessIndicator(transform.name, currentValue / maxValue);
+        //}
     }
 
     public void PickedUp() {

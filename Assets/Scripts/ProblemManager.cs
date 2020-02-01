@@ -43,7 +43,7 @@ public class ProblemManager : MonoBehaviour {
         previousSpot = spot;
 
         if (spot) {
-            Debug.Log("Next spot: " + spot.gameObject.name);
+            //Debug.Log("Next spot: " + spot.gameObject.name);
 
             var problemObject = GameObject.Instantiate(ProblemObject);
             problemObject.transform.position = spot.position;
