@@ -27,15 +27,15 @@ public class ProblemManager : MonoBehaviour {
     }
 
     private void RandomizeSpot() {
-        ProblemSpot[] items = FindObjectsOfType<ProblemSpot>().Where(spot => spot.isInUse).ToArray();
+        ProblemSpot[] items = FindObjectsOfType<ProblemSpot>().Where(spot => !spot.isInUse).ToArray();
         if (items.Length > 1) {
-            do {
-                int index = Random.Range(0, items.Length);
-                spot = items[index].gameObject.transform;
-            } while (spot == previousSpot);
+            int index = Random.Range(0, items.Length);
+            spot = items[index].gameObject.transform;
+            items[index].isInUse = true;
         }
         else if (items.Length == 1) {
             spot = items[0].gameObject.transform;
+            items[0].isInUse = true;
         }
         else if (items.Length == 0) {
             spot = null;
@@ -44,8 +44,7 @@ public class ProblemManager : MonoBehaviour {
 
         if (spot) {
             //Debug.Log("Next spot: " + spot.gameObject.name);
-
-            var problemObject = GameObject.Instantiate(DrillProblemObject);
+            var problemObject = GameObject.Instantiate(WandProblemObject);
             problemObject.transform.position = spot.position;
         }
     }
