@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour {
+public class AudioManager: MonoBehaviour
+{
+    public AudioClip rockFixSound;
+    public AudioClip woundFixSound;
     public AudioClip rockAppearSound;
     public AudioClip woundAppearSound;
     public AudioClip drillSound;
@@ -25,34 +28,43 @@ public class AudioManager : MonoBehaviour {
     }
 
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
-    void Update() {
-
+    void Update()
+    {
+        
     }
 
     public void PlaySound(string clipName) {
+        AudioClip clip = null;
         switch (clipName) {
             case "drillSound":
-                audioSource.clip = drillSound;
+                clip = drillSound;
                 break;
             case "wandSound":
-                audioSource.clip = wandSound;
+                clip = wandSound;
                 break;
             case "noToolSound":
-                audioSource.clip = noToolSound;
+                clip = noToolSound;
                 break;
             case "rockAppearSound":
-                audioSource.clip = rockAppearSound;
+                clip = rockAppearSound;
                 break;
             case "woundAppearSound":
-                audioSource.clip = woundAppearSound;
+                clip = woundAppearSound;
+                break;
+            case "rockFixSound":
+                clip = rockFixSound;
+                break;
+            case "woundFixSound":
+                clip = woundFixSound;
                 break;
         }
 
-        audioSource.Play();
+        audioSource.PlayOneShot(clip);
     }
 }

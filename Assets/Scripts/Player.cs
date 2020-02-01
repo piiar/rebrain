@@ -98,12 +98,14 @@ public class Player : MonoBehaviour {
                 case ItemType.DrillProblem:
                     Debug.Log("---player has " + GetCarriedItem().itemType);
                     if (HasItem(ItemType.Drill)) {
+                        AudioManager.instance.PlaySound("rockFixSound");
                         action = new DrillRepairAction();
                     }
                     break;
                 case ItemType.WandProblem:
                     Debug.Log("---player has " + GetCarriedItem().itemType);
                     if (HasItem(ItemType.Wand)) {
+                        AudioManager.instance.PlaySound("woundFixSound");
                         action = new WandRepairAction();
                     }
                     break;
