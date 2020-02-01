@@ -7,7 +7,7 @@ public class WandRepairAction : Action {
         Debug.Log("---wand repair " + target.itemType);
         if (target.itemType == ItemType.WandProblem) {
             Debug.Log("WandRepairAction");
-            Problem problem = target.GetComponent<Problem>();
+            Problem problem = target.gameObject.GetComponent<Problem>();
             problem.relatedSpot.isInUse = false;
             GameObject.Destroy(target.gameObject);
         }

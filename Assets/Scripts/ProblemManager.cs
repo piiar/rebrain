@@ -32,10 +32,12 @@ public class ProblemManager : MonoBehaviour {
         if (items.Length > 1) {
             int index = Random.Range(0, items.Length);
             spotTransform = items[index].gameObject.transform;
+            spot = items[index];
             items[index].isInUse = true;
         }
         else if (items.Length == 1) {
             spotTransform = items[0].gameObject.transform;
+            spot = items[0];
             items[0].isInUse = true;
         }
         else if (items.Length == 0) {
