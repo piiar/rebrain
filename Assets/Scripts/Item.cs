@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum ItemType {
-    BrainCell = 0,
+    DrillProblem = 0,
     Drill = 1,
-    Wand = 2
+    WandProblem = 2,
+    Wand = 3
 }
 
 public class Item : MonoBehaviour {
