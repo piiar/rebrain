@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ProblemManager : MonoBehaviour {
-
     public GameObject DrillProblemObject;
     public GameObject WandProblemObject;
 
@@ -27,8 +27,7 @@ public class ProblemManager : MonoBehaviour {
     }
 
     private void RandomizeSpot() {
-        // TODO find empty spots only
-        ProblemSpot[] items = FindObjectsOfType<ProblemSpot>();
+        ProblemSpot[] items = FindObjectsOfType<ProblemSpot>().Where(spot => spot.isInUse).ToArray();
         if (items.Length > 1) {
             do {
                 int index = Random.Range(0, items.Length);
