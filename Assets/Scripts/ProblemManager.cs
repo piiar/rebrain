@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ProblemManager : MonoBehaviour {
 
-    public GameObject ProblemObject;
+    public GameObject DrillProblemObject;
+    public GameObject WandProblemObject;
 
     float timeUntilNextProblem;
     Transform spot;
@@ -45,7 +46,7 @@ public class ProblemManager : MonoBehaviour {
         if (spot) {
             //Debug.Log("Next spot: " + spot.gameObject.name);
 
-            var problemObject = GameObject.Instantiate(ProblemObject);
+            var problemObject = GameObject.Instantiate(DrillProblemObject);
             problemObject.transform.position = spot.position;
         }
     }

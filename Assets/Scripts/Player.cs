@@ -64,22 +64,23 @@ public class Player : MonoBehaviour {
     private void HandleInteraction() {
         Item item = itemFinder.LastItem;
         if (item) {
-            PlayerAction action = null;
+            Action action = null;
             switch (item.itemType) {
                 case ItemType.DrillProblem:
                     if (HasItem(ItemType.Drill)) {
-                        // action = RepairDrillAction
+                        action = new DrillRepairAction();
                     }
                     break;
                 case ItemType.WandProblem:
                     if (HasItem(ItemType.Wand)) {
                         // action = RepairWandAction
+                        action = new WandRepairAction();
                     }
                     break;
             }
 
             if (action != null) {
-                action(this, item);
+                action.Execute(this.gameObject, item);
             }
             else if (!carriedObject && item.isCarryable) {
                 // Pick up
