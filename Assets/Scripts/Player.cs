@@ -57,7 +57,10 @@ public class Player : MonoBehaviour {
         //animator.SetFloat(speedHash, Mathf.Min(moveDirection.magnitude, 1f));
     }
 
-    private void ApplyRotationTo(Vector3 targetPosition) {
+    private void ApplyRotationTo(Vector2 moveDirection) {
+        var angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+        rigidbody.SetRotation(angle);
+
         //Vector3 repositioning = targetPosition;
         //if (repositioning != Vector3.zero) {
         //    repositioning.y = 0;

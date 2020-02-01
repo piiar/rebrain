@@ -6,9 +6,9 @@ public class ProblemManager : MonoBehaviour {
 
     public GameObject ProblemObject;
 
-    private float timeUntilNextProblem;
-    private Transform goal;
-    private Transform previousGoal;
+    float timeUntilNextProblem;
+    Transform spot;
+    Transform previousSpot;
 
     // Update is called once per frame
     void Update() {
@@ -26,26 +26,27 @@ public class ProblemManager : MonoBehaviour {
     }
 
     private void RandomizeSpot() {
+        // TODO find empty spots only
         ProblemSpot[] items = FindObjectsOfType<ProblemSpot>();
         if (items.Length > 1) {
             do {
                 int index = Random.Range(0, items.Length);
-                goal = items[index].gameObject.transform;
-            } while (goal == previousGoal);
+                spot = items[index].gameObject.transform;
+            } while (spot == previousSpot);
         }
         else if (items.Length == 1) {
-            goal = items[0].gameObject.transform;
+            spot = items[0].gameObject.transform;
         }
         else if (items.Length == 0) {
-            goal = null;
+            spot = null;
         }
-        previousGoal = goal;
+        previousSpot = spot;
 
-        if (goal) {
-            Debug.Log("Next goal: " + goal.gameObject.name);
+        if (spot) {
+            Debug.Log("Next spot: " + spot.gameObject.name);
 
             var problemObject = GameObject.Instantiate(ProblemObject);
-            problemObject.transform.position = goal.position;
+            problemObject.transform.position = spot.position;
         }
     }
 
