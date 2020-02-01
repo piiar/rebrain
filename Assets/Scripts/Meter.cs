@@ -2,13 +2,10 @@
 using System.Collections;
 
 public class Meter : MonoBehaviour {
-    public GameObject pointer;
-
-    float amount = MeterManager.maxAmount / 2f;
+    public GameObject pointerContainer;
 
     // Use this for initialization
     void Start() {
-
     }
 
     // Update is called once per frame
@@ -16,8 +13,10 @@ public class Meter : MonoBehaviour {
 
     }
 
-    public void UpdateAmount(float _amount) {
-        amount = _amount;
-        // TODO set pointer rotation
+    public void UpdateAmount(float amount) {
+        float degrees = 180 * (100 - amount) / 100;
+        Debug.Log("UpdateAmount " + amount + ", " + degrees);
+        Quaternion rotation = Quaternion.Euler(0, 0, degrees);
+        pointerContainer.transform.rotation = rotation;
     }
 }

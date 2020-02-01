@@ -24,6 +24,13 @@ public class MeterManager : MonoBehaviour {
         }
     }
 
+    private void Start() {
+        electricAmount = maxAmount / 2f;
+        drillAmount = maxAmount / 2f;
+        UIManager.instance.UpdateElectricMeter(electricAmount);
+        UIManager.instance.UpdateDrillMeter(drillAmount);
+    }
+
     void Update() {
         elapsedTime += Time.deltaTime;
         if (elapsedTime >= 1f) {
