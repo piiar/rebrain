@@ -1536,5 +1536,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6865969003873797177, guid: f2639d4c27f64e247b5e5320f703a888,
+        type: 3}
+      propertyPath: rockFixSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b0b2a530198d5e74fab26e404026ed71, type: 3}
+    - target: {fileID: 6865969003873797177, guid: f2639d4c27f64e247b5e5320f703a888,
+        type: 3}
+      propertyPath: woundFixSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2daf12f61191a4e46a87d708f93cc3f7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2639d4c27f64e247b5e5320f703a888, type: 3}
