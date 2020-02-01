@@ -4,7 +4,7 @@ using System.Collections;
 public class Meter : MonoBehaviour {
     public GameObject pointer;
 
-    float amount = 0;
+    float amount = MeterManager.maxAmount / 2f;
 
     // Use this for initialization
     void Start() {
@@ -18,5 +18,6 @@ public class Meter : MonoBehaviour {
 
     public void UpdateAmount(float _amount) {
         amount = _amount;
+        // TODO set pointer rotation
     }
 }

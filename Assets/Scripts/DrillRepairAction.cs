@@ -10,7 +10,7 @@ public class DrillRepairAction : Action {
             Problem problem = target.gameObject.GetComponent<Problem>();
             problem.relatedSpot.isInUse = false;
             GameObject.Destroy(target.gameObject);
-            MeterManager.instance.DecreaseDrillMeter();
+            MeterManager.instance.IncreaseDrillMeter();
         }
     }
 }

@@ -10,6 +10,7 @@ public class WandRepairAction : Action {
             Problem problem = target.gameObject.GetComponent<Problem>();
             problem.relatedSpot.isInUse = false;
             GameObject.Destroy(target.gameObject);
+            MeterManager.instance.IncreaseElectricMeter();
         }
     }
 }

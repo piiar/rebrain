@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MeterManager : MonoBehaviour {
-    public int electricAmount { get; private set; }
-    public int drillAmount { get; private set; }
+
+    public float electricAmount { get; private set; }
+    public float drillAmount { get; private set; }
+
+    public const float maxAmount = 100f;
+    private float elapsedTime = 0;
 
     private static MeterManager _instance;
     public static MeterManager instance {
@@ -20,15 +24,24 @@ public class MeterManager : MonoBehaviour {
         }
     }
 
+    void Update() {
+        elapsedTime += Time.deltaTime;
+        if (elapsedTime >= 1f) {
+            elapsedTime = 0;
+            DecreaseDrillMeter();
+            DecreaseElectricMeter();
+        }
+    }
+
     public void IncreaseElectricMeter() {
-        if (electricAmount < 10) {
+        if (electricAmount < maxAmount) {
             electricAmount++;
             UIManager.instance.UpdateElectricMeter(electricAmount);
         }
     }
 
     public void IncreaseDrillMeter() {
-        if (drillAmount < 10) {
+        if (drillAmount < maxAmount) {
             drillAmount++;
             UIManager.instance.UpdateElectricMeter(drillAmount);
         }
