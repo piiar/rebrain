@@ -152,8 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hudpanel: {fileID: 0}
   menupanel: {fileID: 0}
-  healthIndicatorPrefab: {fileID: 0}
-  clockImage: {fileID: 0}
+  drillMeter: {fileID: 7528439807281787349}
+  electricMeter: {fileID: 7138824327259638354}
 --- !u!4 &146435833
 Transform:
   m_ObjectHideFlags: 0
@@ -1316,6 +1316,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1efbaf22a8ef546098360a94b0ab4a21, type: 3}
+--- !u!114 &7138824327259638354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3068191574262549052, guid: 1efbaf22a8ef546098360a94b0ab4a21,
+    type: 3}
+  m_PrefabInstance: {fileID: 7138824327259638353}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87044b1c0139b42d4aa379b9c708bd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7528439807281787348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1385,6 +1397,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13b88c8c64b6d4f268c9a715efa2f824, type: 3}
+--- !u!114 &7528439807281787349 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3185983592626961474, guid: 13b88c8c64b6d4f268c9a715efa2f824,
+    type: 3}
+  m_PrefabInstance: {fileID: 7528439807281787348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87044b1c0139b42d4aa379b9c708bd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8651696641476749501
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8178899856126352765}
   - component: {fileID: 8370341795440133275}
+  - component: {fileID: 3185983592626961474}
   m_Layer: 0
   m_Name: DrillMeter
   m_TagString: Untagged
@@ -82,6 +83,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3185983592626961474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558280061329714978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87044b1c0139b42d4aa379b9c708bd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointer: {fileID: 3737974892726592803}
 --- !u!1 &3737974892726592803
 GameObject:
   m_ObjectHideFlags: 0

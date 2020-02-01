@@ -18,8 +18,8 @@ public class UIManager : MonoBehaviour {
     //int actionIndicatorCount;
     //int nextActionIndicatorIndex;
 
-    public GameObject healthIndicatorPrefab;
-    public Image clockImage;
+    public Meter drillMeter;
+    public Meter electricMeter;
 
     public bool isPaused { get; private set; }
 
@@ -54,6 +54,18 @@ public class UIManager : MonoBehaviour {
         //}
 
         //Pause();
+    }
+
+    public void UpdateDrillMeter(float amount) {
+        if (drillMeter) {
+            drillMeter.UpdateAmount(amount);
+        }
+    }
+
+    public void UpdateElectricMeter(float amount) {
+        if (electricMeter) {
+            electricMeter.UpdateAmount(amount);
+        }
     }
 
     public void UpdateProgessIndicator(string name, float amount) {
