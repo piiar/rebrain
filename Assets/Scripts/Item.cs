@@ -73,7 +73,6 @@ public class Item : MonoBehaviour {
     }
 
     public void PickedUp() {
-        PreventDamage();
         isPickedUp = true;
     }
 

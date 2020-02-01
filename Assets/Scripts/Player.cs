@@ -9,16 +9,12 @@ public class Player : MonoBehaviour {
     private readonly int speedHash = Animator.StringToHash("Speed");
     private readonly int pickupHash = Animator.StringToHash("PickUp");
 
-    float rotationSpeed = 12f;
     float moveSpeed = 6f;
 
     GameObject carriedObject = null;
 
     private ItemTrigger itemFinder;
     private new Rigidbody2D rigidbody;
-    private Animator animator;
-
-    private bool animationFreezeActive;
 
     private Transform carryItemTransform;
 
@@ -27,7 +23,6 @@ public class Player : MonoBehaviour {
     // Start is called before the first frame update
     void Awake() {
         rigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponentInChildren<Animator>();
         itemFinder = GetComponentInChildren<ItemTrigger>();
 
         carryItemTransform = transform.Find("CarryItemPosition");
@@ -35,7 +30,7 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     public void Move(Vector2 moveDirection, bool interaction) {
-        if (UIManager.instance.isPaused || animationFreezeActive) {
+        if (UIManager.instance.isPaused) {
             return;
         }
 
@@ -48,24 +43,22 @@ public class Player : MonoBehaviour {
         if (interaction) {
             HandleInteraction();
         }
+        if (carriedObject) {
+            UpdateCarriedItemPosition();
+        }
+    }
 
-        // Prevent the player for spinning due to physics issues when moving stuff and colliding
-        //rigidbody.velocity = Vector3.zero;
-        //rigidbody.angularVelocity = 0f;
+    private void UpdateCarriedItemPosition() {
+        // apply the same rotation player has
+        carriedObject.gameObject.transform.localRotation = transform.rotation;
+        // re-position the item on our guide object 
+        carriedObject.gameObject.transform.position = CarryItemPosition;
 
-        //animator.SetFloat(speedHash, Mathf.Min(moveDirection.magnitude, 1f));
     }
 
     private void ApplyRotationTo(Vector2 moveDirection) {
         var angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
         rigidbody.SetRotation(angle);
-
-        //Vector3 repositioning = targetPosition;
-        //if (repositioning != Vector3.zero) {
-        //    repositioning.y = 0;
-        //    Quaternion targetRotation = Quaternion.LookRotation(repositioning, Vector3.up);
-        //    rigidbody.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime));
-        //}
     }
 
     private void HandleInteraction() {
@@ -95,16 +88,8 @@ public class Player : MonoBehaviour {
             }
         }
         if (!item && carriedObject != null) {
-            // Drop
-            animationFreezeActive = true;
-            StartCoroutine(togglePickupAnimation(() => {
-                animator.SetLayerWeight(1, 0f);
-                carriedObject.transform.SetParent(null);
-                Item _item = carriedObject.GetComponent<Item>();
-                _item.DroppedDown();
-                carriedObject = null;
-                animationFreezeActive = false;
-            }));
+            // Drop currently carried item
+            DropItem();
         }
     }
 
@@ -112,21 +97,28 @@ public class Player : MonoBehaviour {
         return carriedObject && GetCarriedItem().itemType == itemType;
     }
 
-    IEnumerator togglePickupAnimation(System.Action callback) {
-        animator.SetTrigger(pickupHash);
-        yield return new WaitForSeconds(0.5f);
-        callback();
+    private void PickupItem(Item item) {
+        Debug.Log("PickupItem " + item.gameObject.name);
+        item.gameObject.transform.SetParent(transform);
+
+        // Set gravity to false while holding it
+        item.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+
+        carriedObject = item.gameObject;
+        item.PickedUp();
+
+        UpdateCarriedItemPosition();
     }
 
-    private void PickupItem(Item item) {
-        animationFreezeActive = true;
-        StartCoroutine(togglePickupAnimation(() => {
-            animator.SetLayerWeight(1, 1f);
-            item.gameObject.transform.SetParent(transform);
-            carriedObject = item.gameObject;
-            item.PickedUp();
-            animationFreezeActive = false;
-        }));
+    private void DropItem() {
+        Debug.Log("DropItem");
+        carriedObject.transform.SetParent(null);
+        // Restore gravity
+        carriedObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+
+        Item _item = carriedObject.GetComponent<Item>();
+        _item.DroppedDown();
+        carriedObject = null;
     }
 
     public Item GetCarriedItem() {
