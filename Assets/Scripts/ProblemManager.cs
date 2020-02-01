@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ProblemManager : MonoBehaviour {
 
-    float timeUntilNextProblem;
-    Transform goal;
-    Transform previousGoal;
+    public GameObject ProblemObject;
+
+    private float timeUntilNextProblem;
+    private Transform goal;
+    private Transform previousGoal;
 
     // Update is called once per frame
     void Update() {
@@ -41,7 +43,9 @@ public class ProblemManager : MonoBehaviour {
 
         if (goal) {
             Debug.Log("Next goal: " + goal.gameObject.name);
-            // TODO spawn new problem
+
+            var problemObject = GameObject.Instantiate(ProblemObject);
+            problemObject.transform.position = goal.position;
         }
     }
 
