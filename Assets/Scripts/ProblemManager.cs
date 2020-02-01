@@ -44,8 +44,16 @@ public class ProblemManager : MonoBehaviour {
 
         if (spot) {
             //Debug.Log("Next spot: " + spot.gameObject.name);
-            var problemObject = GameObject.Instantiate(WandProblemObject);
-            problemObject.transform.position = spot.position;
+            int selectedType = Random.Range(0, 2);
+            if (selectedType == 1) {
+                var problemObject = GameObject.Instantiate(WandProblemObject);
+                problemObject.transform.position = spot.position;
+            }
+            else {
+                var problemObject = GameObject.Instantiate(DrillProblemObject);
+                problemObject.transform.position = spot.position;
+            } 
+            
         }
     }
 
