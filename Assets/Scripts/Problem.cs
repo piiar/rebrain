@@ -4,5 +4,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Problem : MonoBehaviour {
-    // TODO
+    public ProblemSpot relatedSpot = null;
 }

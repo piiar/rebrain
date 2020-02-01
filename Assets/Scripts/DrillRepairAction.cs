@@ -7,6 +7,8 @@ public class DrillRepairAction : Action {
         Debug.Log("---drill repair " + target.itemType);
         if (target.itemType == ItemType.DrillProblem) {
             Debug.Log("DrillRepairAction");
+            Problem problem = target.GetComponent<Problem>();
+            problem.relatedSpot.isInUse = false;
             GameObject.Destroy(target.gameObject);
         }
     }
