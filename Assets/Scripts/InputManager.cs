@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour {
 
     // Key pressed can only reliably be detected during Update()
     private bool interactionPressed = false;
+    private bool fixPressed = false;
 
     // Start is called before the first frame update
     void Awake() {
@@ -17,7 +18,9 @@ public class InputManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1")) {
             interactionPressed = true;
         }
-
+        if (Input.GetKeyDown(KeyCode.F)) {
+            fixPressed = true;
+        }
         if (Input.GetKeyDown(KeyCode.Escape)) {
             UIManager.instance.Pause();
         }
@@ -32,7 +35,8 @@ public class InputManager : MonoBehaviour {
         bool interaction = Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1");
         Vector2 moveDirection = v * Vector2.up + h * Vector2.right;
 
-        player.Move(moveDirection, interactionPressed);
+        player.Move(moveDirection, interactionPressed, fixPressed);
         interactionPressed = false;
+        fixPressed = false;
     }
 }

@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
     }
 
     // Update is called once per frame
-    public void Move(Vector2 moveDirection, bool interaction) {
+    public void Move(Vector2 moveDirection, bool interaction, bool fix) {
         if (UIManager.instance.isPaused) {
             return;
         }
@@ -41,7 +41,10 @@ public class Player : MonoBehaviour {
             rigidbody.MovePosition(new Vector2(transform.position.x + movement.x, transform.position.y + movement.y));
         }
         if (interaction) {
-            HandleInteraction();
+            HandlePickOrDrop();
+        }
+        if (fix) {
+            HandleFixing();
         }
         if (carriedObject) {
             UpdateCarriedItemPosition();
@@ -61,8 +64,25 @@ public class Player : MonoBehaviour {
         rigidbody.SetRotation(angle);
     }
 
-    private void HandleInteraction() {
+    private void HandlePickOrDrop() {
+        Debug.Log("HandlePickOrDrop");
         Item item = itemFinder.LastItem;
+        if (item) {
+            if (!carriedObject && item.isCarryable) {
+                // Pick up
+                PickupItem(item);
+
+            }
+            else if (carriedObject != null) {
+                // Drop currently carried item
+                DropItem();
+            }
+        }
+    }
+
+    private void HandleFixing() {
+        Debug.Log("HandleFixing");
+        Item item = itemFinder.LastProblem;
         if (item) {
             Action action = null;
             switch (item.itemType) {
@@ -80,15 +100,6 @@ public class Player : MonoBehaviour {
 
             if (action != null) {
                 action.Execute(this.gameObject, item);
-            }
-            else if (!carriedObject && item.isCarryable) {
-                // Pick up
-                PickupItem(item);
-
-            }
-            else if (carriedObject != null) {
-                // Drop currently carried item
-                DropItem();
             }
         }
     }

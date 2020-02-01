@@ -4,25 +4,35 @@ using UnityEngine;
 
 public class ItemTrigger : MonoBehaviour {
     public Item LastItem { get; private set; }
+    public Item LastProblem { get; private set; }
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Item")) {
             //Debug.Log("enter " + other.name);
             Item item = other.gameObject.GetComponent<Item>();
-            if (item && (item.isCarryable || item.isFixable || item.isUsable)) {
+            if (item && item.isCarryable) {
                 LastItem = item;
+                print("LastItem: " + LastItem.name);
             }
-            else {
-                LastItem = null;
+            else if (item && item.isFixable) {
+                LastProblem = item;
+                print("LastProblem: " + LastProblem.name);
             }
-            print("LastItem: " + (LastItem ? LastItem.name : "null"));
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Item")) {
             //Debug.Log("exit " + other.name);
-            LastItem = null;
+            Item item = other.gameObject.GetComponent<Item>();
+            if (item && item.isCarryable) {
+                LastItem = null;
+                print("LastItem: null");
+            }
+            else if (item && item.isFixable) {
+                LastProblem = null;
+                print("LastProblem: null");
+            }
         }
     }
 }
