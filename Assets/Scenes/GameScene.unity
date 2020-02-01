@@ -948,6 +948,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e057c024ca29642cab323a717044970c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProblemObject: {fileID: 986158896528519941, guid: 8299225e93ee641698dafa0a2f70790c,
+    type: 3}
 --- !u!4 &1361191106
 Transform:
   m_ObjectHideFlags: 0
