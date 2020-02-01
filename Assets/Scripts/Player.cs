@@ -50,7 +50,7 @@ public class Player : MonoBehaviour {
 
     private void UpdateCarriedItemPosition() {
         // apply the same rotation player has
-        carriedObject.gameObject.transform.localRotation = transform.rotation;
+        carriedObject.gameObject.transform.rotation = transform.rotation * Quaternion.Euler(0, 0, 90); // this adds a 90 degrees Y rotation;
         // re-position the item on our guide object 
         carriedObject.gameObject.transform.position = CarryItemPosition;
 
