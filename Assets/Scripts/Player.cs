@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+    public AudioManager audioManager;
     private readonly int speedHash = Animator.StringToHash("Speed");
     private readonly int pickupHash = Animator.StringToHash("PickUp");
 
@@ -81,14 +82,23 @@ public class Player : MonoBehaviour {
 
     private void HandleFixing() {
         Debug.Log("HandleFixing");
-        Item item = itemFinder.LastProblem;
-        if (item) {
+        if (HasItem(ItemType.Drill)) {
+            audioManager.PlaySound("drillUsed");
+        }
+        else if (HasItem(ItemType.Wand)) {
+            audioManager.PlaySound("wandUsed");
+        }
+        else {
+            audioManager.PlaySound("noTool");
+        }
+
+        Item problem = itemFinder.LastProblem;
+        if (problem) {
             Action action = null;
-            switch (item.itemType) {
+            switch (problem.itemType) {
                 case ItemType.DrillProblem:
                     Debug.Log("---player has " + GetCarriedItem().itemType);
                     if (HasItem(ItemType.Drill)) {
-
                         action = new DrillRepairAction();
                     }
                     break;
@@ -101,7 +111,7 @@ public class Player : MonoBehaviour {
             }
 
             if (action != null) {
-                action.Execute(this.gameObject, item);
+                action.Execute(this.gameObject, problem);
             }
         }
     }

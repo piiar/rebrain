@@ -140,3 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16224584d9057ff4eaa4d275cfb3d4c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drillSound: {fileID: 8300000, guid: 95649c27e12d39145949154300ca9fca, type: 3}
+  wandSound: {fileID: 8300000, guid: fe467aeb6ee2b4a44badbae4ba1dbe20, type: 3}
+  noToolSound: {fileID: 8300000, guid: fe01487cab687884e9ff4cf3a29e81c3, type: 3}
