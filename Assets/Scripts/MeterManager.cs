@@ -20,21 +20,21 @@ public class MeterManager : MonoBehaviour {
         }
     }
 
-    void IncreaseElectricMeter() {
+    public void IncreaseElectricMeter() {
         if (electricAmount < 10) {
             electricAmount++;
             UIManager.instance.UpdateElectricMeter(electricAmount);
         }
     }
 
-    void IncreaseDrillMeter() {
+    public void IncreaseDrillMeter() {
         if (drillAmount < 10) {
             drillAmount++;
             UIManager.instance.UpdateElectricMeter(drillAmount);
         }
     }
 
-    void DecreaseElectricMeter() {
+    public void DecreaseElectricMeter() {
         if (electricAmount > 0) {
             electricAmount--;
             UIManager.instance.UpdateElectricMeter(electricAmount);
@@ -42,7 +42,7 @@ public class MeterManager : MonoBehaviour {
         }
     }
 
-    void DecreaseDrillMeter() {
+    public void DecreaseDrillMeter() {
         if (drillAmount > 0) {
             drillAmount--;
             UIManager.instance.UpdateElectricMeter(drillAmount);

@@ -53,6 +53,7 @@ public class ProblemManager : MonoBehaviour {
                 problemObject.transform.position = spotTransform.position;
                 Problem problem = problemObject.GetComponent<Problem>();
                 problem.relatedSpot = spot;
+                MeterManager.instance.IncreaseElectricMeter();
             }
             else {
                 AudioManager.instance.PlaySound("rockAppearSound");
@@ -60,6 +61,7 @@ public class ProblemManager : MonoBehaviour {
                 problemObject.transform.position = spotTransform.position;
                 Problem problem = problemObject.GetComponent<Problem>();
                 problem.relatedSpot = spot;
+                MeterManager.instance.IncreaseDrillMeter();
             }
 
         }
