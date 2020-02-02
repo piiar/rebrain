@@ -7,7 +7,8 @@ public class ProblemManager : MonoBehaviour {
     public GameObject DrillProblemObject;
     public GameObject WandProblemObject;
 
-    float timeUntilNextProblem;
+    float timeUntilNextWandProblem;
+    float timeUntilNextDrillProblem;
     Transform spotTransform;
     ProblemSpot spot;
 
@@ -18,15 +19,20 @@ public class ProblemManager : MonoBehaviour {
             return;
         }
 
-        timeUntilNextProblem -= Time.deltaTime;
+        timeUntilNextWandProblem -= Time.deltaTime;
+        timeUntilNextDrillProblem -= Time.deltaTime;
 
-        if (timeUntilNextProblem <= 0f) {
-            timeUntilNextProblem = Random.Range(2f, 5f);
-            RandomizeSpot();
+        if (timeUntilNextWandProblem <= 0f) {
+            timeUntilNextWandProblem = Random.Range(3f, 7f);
+            RandomizeSpot("wandProblem");
+        }
+        if (timeUntilNextDrillProblem <= 0f) {
+            timeUntilNextDrillProblem = Random.Range(3f, 7f);
+            RandomizeSpot("drillProblem");
         }
     }
 
-    private void RandomizeSpot() {
+    private void RandomizeSpot(string problemType) {
         ProblemSpot[] items = FindObjectsOfType<ProblemSpot>().Where(spot => !spot.isInUse).ToArray();
 
         if (items.Length > 1) {
@@ -46,8 +52,7 @@ public class ProblemManager : MonoBehaviour {
 
         if (spotTransform) {
             //Debug.Log("Next spot: " + spot.gameObject.name);
-            int selectedType = Random.Range(0, 2);
-            if (selectedType == 1) {
+            if (problemType == "wandProblem") {
                 AudioManager.instance.PlaySound("woundAppearSound");
                 var problemObject = GameObject.Instantiate(WandProblemObject);
                 problemObject.transform.position = spotTransform.position;
