@@ -4723,6 +4723,7 @@ MonoBehaviour:
   optionsTint: {fileID: 136786}
   menuPanel: {fileID: 164008}
   pausePanel: {fileID: 198696}
+  endGamePanel: {fileID: 173912798000825069}
 --- !u!1 &199498
 GameObject:
   m_ObjectHideFlags: 0
@@ -4883,6 +4884,7 @@ GameObject:
   - component: {fileID: 2327417167841962646}
   - component: {fileID: 4009114830352575150}
   - component: {fileID: 3156753872456129566}
+  - component: {fileID: 377697473}
   m_Layer: 5
   m_Name: EndGamePanel
   m_TagString: Untagged
@@ -4991,6 +4993,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSelectedObject: {fileID: 2185180915657511102}
+--- !u!114 &377697473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173912798000825069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af49b17cf359045e1a6c2452586ebb77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &321222823149928034
 GameObject:
   m_ObjectHideFlags: 0

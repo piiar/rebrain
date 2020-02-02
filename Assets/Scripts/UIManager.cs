@@ -171,13 +171,12 @@ public class UIManager : MonoBehaviour {
 
     public void EndGame() {
         Pause();
-        EndGame obj = FindObjectOfType<EndGame>();
+        ShowPanels obj = FindObjectOfType<ShowPanels>();
         if (obj) {
-            Debug.Log("---doing EndGame");
-            obj.DoEndGame();
+            obj.ShowEndGamePanel();
         }
         else {
-            Debug.Log("no EndGame found");
+            Debug.Log("EndGame: no ShowPanels obj found");
         }
     }
 }
