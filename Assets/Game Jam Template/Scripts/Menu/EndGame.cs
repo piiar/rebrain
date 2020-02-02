@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class EndGame : MonoBehaviour {
@@ -6,7 +7,7 @@ public class EndGame : MonoBehaviour {
 
     public CanvasGroup mainCanvasGroup;
 
-    private ShowPanels showPanels;                      //Reference to the ShowPanels script used to hide and show UI panels
+    public ShowPanels showPanels;                      //Reference to the ShowPanels script used to hide and show UI panels
     //private bool isPaused;                              //Boolean to check if the game is paused or not
     private StartOptions startScript;                   //Reference to the StartButton script
 
@@ -57,6 +58,8 @@ public class EndGame : MonoBehaviour {
         //call the HidePausePanel function of the ShowPanels script
         showPanels.HideEndGamePanel();
         mainCanvasGroup.alpha = 0f;
+        MeterManager.instance.Reset();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 

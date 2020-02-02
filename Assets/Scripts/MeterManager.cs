@@ -25,6 +25,10 @@ public class MeterManager : MonoBehaviour {
     }
 
     private void Start() {
+        Reset();
+    }
+
+    public void Reset() {
         electricAmount = maxAmount / 2f;
         drillAmount = maxAmount / 2f;
         UIManager.instance.UpdateElectricMeter(electricAmount);
