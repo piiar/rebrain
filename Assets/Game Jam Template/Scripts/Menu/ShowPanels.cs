@@ -73,14 +73,13 @@ public class ShowPanels : MonoBehaviour {
 
     //Call this function to activate and display the End Game panel during game play
     public void ShowEndGamePanel() {
+        Debug.Log("---ShowEndGamePanel");
         endGamePanel.SetActive(true);
-        optionsTint.SetActive(true);
         SetSelection(endGamePanel);
     }
 
     //Call this function to deactivate and hide the End Game panel during game play
     public void HideEndGamePanel() {
         endGamePanel.SetActive(false);
-        optionsTint.SetActive(false);
     }
 }
