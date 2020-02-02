@@ -39,7 +39,7 @@ public class EyeController : MonoBehaviour
     }
 
     Vector3 getRandomTargetScale () {
-        currentDilation = Random.Range(1f, 10f);
+        currentDilation = Random.Range(5f, 15f);
         return new Vector3 (currentDilation, currentDilation, 0);
     }
 }
