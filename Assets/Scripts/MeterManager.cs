@@ -45,6 +45,9 @@ public class MeterManager : MonoBehaviour {
             electricAmount += 10;
             UIManager.instance.UpdateElectricMeter(electricAmount);
         }
+        else {
+            UIManager.instance.EndGame();
+        }
     }
 
     public void IncreaseDrillMeter() {
@@ -52,20 +55,28 @@ public class MeterManager : MonoBehaviour {
             drillAmount += 10;
             UIManager.instance.UpdateDrillMeter(drillAmount);
         }
+        else {
+            UIManager.instance.EndGame();
+        }
     }
 
     public void DecreaseElectricMeter() {
         if (electricAmount > 0) {
-            electricAmount -= 1.0f;
+            electricAmount -= 3.0f;
             UIManager.instance.UpdateElectricMeter(electricAmount);
-
+        }
+        else {
+            UIManager.instance.EndGame();
         }
     }
 
     public void DecreaseDrillMeter() {
         if (drillAmount > 0) {
-            drillAmount -= 1.0f;
+            drillAmount -= 3.0f;
             UIManager.instance.UpdateDrillMeter(drillAmount);
+        }
+        else {
+            UIManager.instance.EndGame();
         }
     }
 }

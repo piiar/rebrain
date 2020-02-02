@@ -168,4 +168,16 @@ public class UIManager : MonoBehaviour {
         //Set time.timescale to 1, this will cause animations and physics to continue updating at regular speed
         Time.timeScale = 1;
     }
+
+    public void EndGame() {
+        Pause();
+        EndGame obj = FindObjectOfType<EndGame>();
+        if (obj) {
+            Debug.Log("---doing EndGame");
+            obj.DoEndGame();
+        }
+        else {
+            Debug.Log("no EndGame found");
+        }
+    }
 }

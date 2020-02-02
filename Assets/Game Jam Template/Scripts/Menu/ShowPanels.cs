@@ -8,6 +8,7 @@ public class ShowPanels : MonoBehaviour {
     public GameObject optionsTint;                          //Store a reference to the Game Object OptionsTint 
     public GameObject menuPanel;                            //Store a reference to the Game Object MenuPanel 
     public GameObject pausePanel;                           //Store a reference to the Game Object PausePanel 
+    public GameObject endGamePanel;
 
     private GameObject activePanel;
     private MenuObject activePanelMenuObject;
@@ -30,10 +31,10 @@ public class ShowPanels : MonoBehaviour {
 
     //Call this function to activate and display the Options panel during the main menu
     public void ShowOptionsPanel() {
-        //optionsPanel.SetActive(true);
-        //optionsTint.SetActive(true);
-        //menuPanel.SetActive(false);
-        //SetSelection(optionsPanel);
+        optionsPanel.SetActive(true);
+        optionsTint.SetActive(true);
+        menuPanel.SetActive(false);
+        SetSelection(optionsPanel);
 
     }
 
@@ -68,5 +69,18 @@ public class ShowPanels : MonoBehaviour {
         pausePanel.SetActive(false);
         optionsTint.SetActive(false);
 
+    }
+
+    //Call this function to activate and display the End Game panel during game play
+    public void ShowEndGamePanel() {
+        endGamePanel.SetActive(true);
+        optionsTint.SetActive(true);
+        SetSelection(endGamePanel);
+    }
+
+    //Call this function to deactivate and hide the End Game panel during game play
+    public void HideEndGamePanel() {
+        endGamePanel.SetActive(false);
+        optionsTint.SetActive(false);
     }
 }
