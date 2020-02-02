@@ -131,6 +131,12 @@ public class UIManager : MonoBehaviour {
         Unpause();
     }
 
+    public void RestartGame() {
+        drillMeter.UpdateAmount(50);
+        electricMeter.UpdateAmount(50);
+        Unpause();
+    }
+
     public void Quit() {
         //If we are running in a standalone build of the game
 #if UNITY_STANDALONE

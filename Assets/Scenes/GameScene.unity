@@ -235,8 +235,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightEye
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 844305056447988685, guid: efb6bd558281c0842892891ab4b57c40, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efb6bd558281c0842892891ab4b57c40, type: 3}
 --- !u!1 &358152255 stripped
 GameObject:

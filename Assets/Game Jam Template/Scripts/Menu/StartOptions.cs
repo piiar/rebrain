@@ -41,28 +41,8 @@ public class StartOptions : MonoBehaviour {
 
     public void StartButtonClicked() {
         UIManager.instance.StartGame();
-
-        //If changeMusicOnStart is true, fade out volume of music group of AudioMixer by calling FadeDown function of PlayMusic
-        //To change fade time, change length of animation "FadeToColor"
-        //if (menuSettingsData.musicLoopToChangeTo != null) {
-        //    playMusic.FadeDown(menuSettingsData.menuFadeTime);
-        //}
-
-        //If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
-        if (menuSettingsData.nextSceneIndex != 0) {
-            //Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
-            Invoke("LoadDelayed", menuSettingsData.menuFadeTime);
-
-            StartCoroutine(FadeCanvasGroupAlpha(0f, 1f, fadeOutImageCanvasGroup));
-
-        }
-
-        //If changeScenes is false, call StartGameInScene
-        else {
-            //Call the StartGameInScene function to start game without loading a new scene.
-            StartGameInScene();
-        }
-
+        //Call the StartGameInScene function to start game without loading a new scene.
+        StartGameInScene();
     }
 
     void OnEnable() {
@@ -106,27 +86,13 @@ public class StartOptions : MonoBehaviour {
             //Wait until game has started, then play new music
             //Invoke("PlayNewMusic", menuSettingsData.menuFadeTime);
         }
-
-        // StartCoroutine(FadeCanvasGroupAlpha(1f, 0f, menuCanvasGroup));
         showPanels.HideMenu();
     }
 
-    public IEnumerator FadeCanvasGroupAlpha(float startAlpha, float endAlpha, CanvasGroup canvasGroupToFadeAlpha) {
-
-        float elapsedTime = 0f;
-        float totalDuration = menuSettingsData.menuFadeTime;
-
-        while (elapsedTime < totalDuration) {
-            elapsedTime += Time.deltaTime;
-            float currentAlpha = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / totalDuration);
-            canvasGroupToFadeAlpha.alpha = currentAlpha;
-            yield return null;
-        }
-
-        HideDelayed();
-        Debug.Log("Coroutine done. Game started in same scene! Put your game starting stuff here.");
+    public void RestartButtonClicked() {
+        showPanels.HideEndGamePanel();
+        UIManager.instance.RestartGame();
     }
-
 
     public void PlayNewMusic() {
         ////Fade up music nearly instantly without a click 
