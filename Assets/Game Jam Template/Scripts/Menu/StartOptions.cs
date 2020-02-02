@@ -33,7 +33,7 @@ public class StartOptions : MonoBehaviour {
         playMusic = GetComponent<PlayMusic>();
 
         //Get a reference to the CanvasGroup attached to the main menu so that we can fade it's alpha
-        menuCanvasGroup = GetComponent<CanvasGroup>();
+        // menuCanvasGroup = GetComponent<CanvasGroup>();
 
         fadeImage.color = menuSettingsData.sceneChangeFadeColor;
     }
@@ -107,7 +107,8 @@ public class StartOptions : MonoBehaviour {
             //Invoke("PlayNewMusic", menuSettingsData.menuFadeTime);
         }
 
-        StartCoroutine(FadeCanvasGroupAlpha(1f, 0f, menuCanvasGroup));
+        // StartCoroutine(FadeCanvasGroupAlpha(1f, 0f, menuCanvasGroup));
+        showPanels.HideMenu();
     }
 
     public IEnumerator FadeCanvasGroupAlpha(float startAlpha, float endAlpha, CanvasGroup canvasGroupToFadeAlpha) {

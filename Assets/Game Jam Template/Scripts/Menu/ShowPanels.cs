@@ -54,7 +54,6 @@ public class ShowPanels : MonoBehaviour {
     //Call this function to deactivate and hide the main menu panel during the main menu
     public void HideMenu() {
         menuPanel.SetActive(false);
-
     }
 
     //Call this function to activate and display the Pause panel during game play

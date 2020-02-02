@@ -4,6 +4,8 @@ using System.Collections;
 public class EndGame : MonoBehaviour {
 
 
+    public CanvasGroup mainCanvasGroup;
+
     private ShowPanels showPanels;                      //Reference to the ShowPanels script used to hide and show UI panels
     //private bool isPaused;                              //Boolean to check if the game is paused or not
     private StartOptions startScript;                   //Reference to the StartButton script
@@ -42,6 +44,7 @@ public class EndGame : MonoBehaviour {
         ////Set time.timescale to 0, this will cause animations and physics to stop updating
         //Time.timeScale = 0;
         //call the ShowPausePanel function of the ShowPanels script
+        mainCanvasGroup.alpha = 1f;
         showPanels.ShowEndGamePanel();
     }
 
@@ -53,6 +56,7 @@ public class EndGame : MonoBehaviour {
         //Time.timeScale = 1;
         //call the HidePausePanel function of the ShowPanels script
         showPanels.HideEndGamePanel();
+        mainCanvasGroup.alpha = 0f;
     }
 
 
