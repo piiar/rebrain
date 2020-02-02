@@ -64,7 +64,7 @@ public class MeterManager : MonoBehaviour {
 
     public void DecreaseElectricMeter() {
         if (electricAmount > 0) {
-            electricAmount -= 3.0f;
+            electricAmount -= 1.5f;
             UIManager.instance.UpdateElectricMeter(electricAmount);
         }
         else {
@@ -75,7 +75,7 @@ public class MeterManager : MonoBehaviour {
 
     public void DecreaseDrillMeter() {
         if (drillAmount > 0) {
-            drillAmount -= 3.0f;
+            drillAmount -= 1.5f;
             UIManager.instance.UpdateDrillMeter(drillAmount);
         }
         else {
