@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
     Camera cam;
@@ -30,7 +27,7 @@ public class UIManager : MonoBehaviour {
                 _instance = Object.FindObjectOfType<UIManager>();
 
                 //Tell unity not to destroy this object when loading a new scene!
-                DontDestroyOnLoad(_instance.gameObject);
+                // DontDestroyOnLoad(_instance.gameObject);
             }
 
             return _instance;
@@ -132,9 +129,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public void RestartGame() {
-        drillMeter.UpdateAmount(50);
-        electricMeter.UpdateAmount(50);
-        Unpause();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Quit() {

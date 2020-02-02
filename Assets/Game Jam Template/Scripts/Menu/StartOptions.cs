@@ -24,6 +24,7 @@ public class StartOptions : MonoBehaviour {
     private ShowPanels showPanels;										//Reference to ShowPanels script on UI GameObject, to show and hide panels
     private CanvasGroup menuCanvasGroup;
 
+    private bool isRestart = false;
 
     void Awake() {
         //Get a reference to ShowPanels attached to UI object
@@ -43,6 +44,7 @@ public class StartOptions : MonoBehaviour {
         UIManager.instance.StartGame();
         //Call the StartGameInScene function to start game without loading a new scene.
         StartGameInScene();
+        isRestart = true;
     }
 
     void OnEnable() {
@@ -55,10 +57,10 @@ public class StartOptions : MonoBehaviour {
 
     //Once the level has loaded, check if we want to call PlayLevelMusic
     void SceneWasLoaded(Scene scene, LoadSceneMode mode) {
-        //if changeMusicOnStart is true, call the PlayLevelMusic function of playMusic
-        if (menuSettingsData.musicLoopToChangeTo != null) {
-            //playMusic.PlayLevelMusic();
-        }
+        print(isRestart);
+        // if (isRestart) {
+        //     StartButtonClicked();
+        // }
     }
 
     public void LoadDelayed() {
@@ -69,7 +71,7 @@ public class StartOptions : MonoBehaviour {
         showPanels.HideMenu();
 
         //Load the selected scene, by scene index number in build settings
-        SceneManager.LoadScene(sceneToStart);
+        // SceneManager.LoadScene(sceneToStart);
     }
 
     public void HideDelayed() {
