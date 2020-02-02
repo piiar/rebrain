@@ -1759,6 +1759,11 @@ PrefabInstance:
         type: 3}
       propertyPath: woundFixSound
       value: 
-      objectReference: {fileID: 8300000, guid: 2daf12f61191a4e46a87d708f93cc3f7, type: 3}
+      objectReference: {fileID: 8300000, guid: fe467aeb6ee2b4a44badbae4ba1dbe20, type: 3}
+    - target: {fileID: 6865969003873797177, guid: f2639d4c27f64e247b5e5320f703a888,
+        type: 3}
+      propertyPath: wandSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2a5160e9465876346a1b8cbddc3b27a1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2639d4c27f64e247b5e5320f703a888, type: 3}

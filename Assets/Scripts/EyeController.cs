@@ -12,7 +12,7 @@ public class EyeController : MonoBehaviour
     public EyeStates eyeState = EyeStates.Normal;
     Tweener eyeTween;
     Tweener pupilTween;
-    private float randomEyePosDiff = 0.25f;
+    private float randomEyePosDiff = 0.4f;
     private float currentDilation = 1f;
 
     void Start()
