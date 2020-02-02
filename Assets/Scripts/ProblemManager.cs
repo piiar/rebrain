@@ -56,6 +56,7 @@ public class ProblemManager : MonoBehaviour {
                 AudioManager.instance.PlaySound("woundAppearSound");
                 var problemObject = GameObject.Instantiate(WandProblemObject);
                 problemObject.transform.position = spotTransform.position;
+                problemObject.transform.rotation = Quaternion.Euler( 0 , 0 , Random.Range(-60, 60));
                 Problem problem = problemObject.GetComponent<Problem>();
                 problem.relatedSpot = spot;
             }
@@ -63,6 +64,7 @@ public class ProblemManager : MonoBehaviour {
                 AudioManager.instance.PlaySound("rockAppearSound");
                 var problemObject = GameObject.Instantiate(DrillProblemObject);
                 problemObject.transform.position = spotTransform.position;
+                problemObject.transform.rotation = Quaternion.Euler( 0 , 0 , Random.Range(-45, 45));
                 Problem problem = problemObject.GetComponent<Problem>();
                 problem.relatedSpot = spot;
             }
