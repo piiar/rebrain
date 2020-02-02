@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioManager: MonoBehaviour
 {
+    public AudioClip drillWarningSound;
+    public AudioClip wandWarningSound;
     public AudioClip rockFixSound;
     public AudioClip woundFixSound;
     public AudioClip rockAppearSound;
@@ -62,6 +64,12 @@ public class AudioManager: MonoBehaviour
                 break;
             case "woundFixSound":
                 clip = woundFixSound;
+                break;
+            case "drillWarningSound":
+                clip = drillWarningSound;
+                break;
+            case "wandWarningSound":
+                clip = wandWarningSound;
                 break;
         }
 

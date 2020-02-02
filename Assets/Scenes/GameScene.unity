@@ -514,6 +514,14 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 22444764, guid: 45616935e4fe10f48b62da1347801a16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.543663
+      objectReference: {fileID: 0}
+    - target: {fileID: 22444764, guid: 45616935e4fe10f48b62da1347801a16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 28.438461
+      objectReference: {fileID: 0}
     - target: {fileID: 22496010, guid: 45616935e4fe10f48b62da1347801a16, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -6543,5 +6551,15 @@ PrefabInstance:
       propertyPath: wandSound
       value: 
       objectReference: {fileID: 8300000, guid: 2a5160e9465876346a1b8cbddc3b27a1, type: 3}
+    - target: {fileID: 6865969003873797177, guid: f2639d4c27f64e247b5e5320f703a888,
+        type: 3}
+      propertyPath: drillWarningSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 793d0abfc5c87e744ab897498d9e1b92, type: 3}
+    - target: {fileID: 6865969003873797177, guid: f2639d4c27f64e247b5e5320f703a888,
+        type: 3}
+      propertyPath: wandWarningSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bfb23737fc8174a49969ef4cf63cdcf0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2639d4c27f64e247b5e5320f703a888, type: 3}
