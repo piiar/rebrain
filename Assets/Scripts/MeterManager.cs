@@ -46,6 +46,7 @@ public class MeterManager : MonoBehaviour {
             UIManager.instance.UpdateElectricMeter(electricAmount);
         }
         else {
+            AudioManager.instance.PlaySound("wandWarningSound");
             UIManager.instance.EndGame();
         }
     }
@@ -56,6 +57,7 @@ public class MeterManager : MonoBehaviour {
             UIManager.instance.UpdateDrillMeter(drillAmount);
         }
         else {
+            AudioManager.instance.PlaySound("drillWarningSound");
             UIManager.instance.EndGame();
         }
     }
@@ -66,6 +68,7 @@ public class MeterManager : MonoBehaviour {
             UIManager.instance.UpdateElectricMeter(electricAmount);
         }
         else {
+            AudioManager.instance.PlaySound("wandWarningSound");
             UIManager.instance.EndGame();
         }
     }
@@ -76,6 +79,7 @@ public class MeterManager : MonoBehaviour {
             UIManager.instance.UpdateDrillMeter(drillAmount);
         }
         else {
+            AudioManager.instance.PlaySound("drillWarningSound");
             UIManager.instance.EndGame();
         }
     }
